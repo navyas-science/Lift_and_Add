@@ -1,0 +1,54 @@
+configfile: "config_files/config_liftoff_sarHar1.yaml"
+
+#Pandas dataframe with target genome paths
+
+import pandas as pd
+
+targets = pd.read_csv(config["target_species_path"], sep="\t").set_index("assembly", drop=False)
+
+#Target genome path input function
+def genome_for_species(wildcards):
+  return targets.loc[wildcards.target_species, "genomePath"]
+
+CHR = ["chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10","chr11", "chr12", "chr13", "chr14", "chr15","chr16", "chr17", "chr18", "chr19"]
+
+#CHR = ["chr21" "chr20" "chr22"]
+path=config["working_dir"]
+target_species=config["target_species_list"]
+
+rule all:
+	input:
+		expand("{path}/{chr}_phastCons60way_{target_species}_mapped.gtf", chr=CHR, path=path,target_species=target_species),
+		expand("{path}/{chr}_phastCons60way_{target_species}_unmapped.gtf", chr=CHR, path=path,target_species=target_species),
+		expand("{path}/{chr}_phastCons60way_liftoff_{target_species}_mapped.bed", chr=CHR, path=path,target_species=target_species),
+		expand("{path}/{chr}_phastCons60way_liftoff_{target_species}_mapped_cleaned.bed", chr=CHR, path=path,target_species=target_species)
+
+rule liftoff:
+	input:
+		gtf="{path}/{chr}_phastCons60way_sarHar1_liftover_edited.gtf",
+		features=config["features"],
+		reference_genome=config["genome_path_reference"],
+		target_genome=genome_for_species
+	output:
+		mapped="{path}/{chr}_phastCons60way_{target_species}_mapped.gtf",
+		unmapped="{path}/{chr}_phastCons60way_{target_species}_unmapped.gtf"
+	log:
+		"{path}/logfiles/{chr}_phastCons60way_{target_species}_mapped.gtf.log"
+	params:
+		flank=config["flank"]
+	shell:
+		"""
+		liftoff -g {input.gtf} -f {input.features}  -flank {params.flank} {input.target_genome} {input.reference_genome} -o {output.mapped} -u {output.unmapped} 2> {log}
+		"""
+
+rule finish:
+	input:
+		file=expand("{path}/{chr}_phastCons60way_liftoff_{target_species}_mapped.gtf", path=config["working_dir"], chr=CHR,target_species=config["target_species_list"])
+	output:
+		lines="{path}/lines.txt"
+	shell:
+		"""
+		wc -l {input.file}  >> {output.lines}
+		"""
+		
+

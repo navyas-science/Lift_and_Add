@@ -8,6 +8,7 @@ This repository consists of all the Snakemake files, config files and bash scrip
   + BEDOPS, v2.4.4.1
   + Liftoff v1.6.3
   + MAFFT v7.5
+  + Python 3.10.8
   + R v4.4.0 
       + UpSetR v1.4.0
   + Snakemake v7.32.4
