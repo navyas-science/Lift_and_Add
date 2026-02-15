@@ -15,7 +15,7 @@ This repository consists of all the Snakemake files, config files and bash scrip
   + UCSC liftOver
   + UCSC faSplit
 
-(Conda environment also available to install from the enviroment.yml file.) 
+(Conda environment also available to install from the liftadd.yaml file.) 
 
 ## Glossary ##
 
@@ -63,7 +63,7 @@ snakemake -s 2.Snakefile --cores 6 output/sarHar1_workflow_summary.txt --resourc
 
 **Sample DAG, single chromosome, five target genomes:**
 
-![](Snakefile\_dag.pdf)
+![](Snakefile\_dag.svg)
 
 #### Inputs ####
   * Snakefile

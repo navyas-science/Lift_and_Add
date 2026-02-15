@@ -2,7 +2,7 @@
 # Affiliation: University of Melbourne
 # This script performs a series of bioinformatic steps to map a specified set of vertebrate conseved elements from their reference genome to a set of marsupial genomes, using a combination of liftOver and Liftoff. 
 
-configfile: "config_can.yaml" 
+configfile: "config_snakemake.yaml" 
 CHR = config["chromosomes"]
 path=config["working_dir"]
 target_species=config["target_species_list"]
