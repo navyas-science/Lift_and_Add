@@ -1,6 +1,6 @@
 # A workflow to add new genomes to existing alignments of vertebrate conserved elements # 
 
-This repository consists of all the Snakemake files, config files and bash scripts required for the workflow detailed in Shukla and Gallego Romero, 2025. 
+This repository consists of all the Snakemake files, config files and bash scripts required for the workflow detailed in [Shukla and Gallego Romero, 2025](https://www.biorxiv.org/content/10.1101/2025.10.14.682260v1.article-metrics)).
 
 ## Tools ## 
 
@@ -16,6 +16,10 @@ This repository consists of all the Snakemake files, config files and bash scrip
   + UCSC faSplit
 
 (Conda environment also available to install from the liftadd.yaml file.) 
+
+## Example ## 
+
+All input files (except genome fasta and index files) for an example usage are in the example/ folder. 
 
 ## Glossary ##
 
@@ -69,15 +73,15 @@ snakemake -s 2.Snakefile --cores 6 output/sarHar1_workflow_summary.txt --resourc
   * Snakefiles
       + rules/lifover.smk: Specify path to the dataset of vertebrate conserved elements being mapped, labelled with their chromosomal location in mouse (e.g. "{chr}\_phastCons60way\_sarHar1\_liftover.bed")
 
-  * Config file (config\_compiled.yaml)
+  * Config file (config\_snakemake.yaml)
     + query\_species: basename for the Liftoff query species. 
     + genome\_path\_query : path for the  Liftoff query species genome. 
     + target\_species\_list: list of basenames for the target species genome(s)
-    + target\_species\_path: a tsv file with the basenames, genome path and genome index paths for each target species. 
+    + target\_species\_path: a tsv file with the basenames, genome path and genome index paths for each target species. Example file is target_species_genomes.tsv. 
     + list of chromosomes 
     + liftover parameters
     + Liftoff parameters
-    + features : A features file for Liftoff. This is just a line-seperated list of the vertebrate conserved elements being mapped. 
+    + features : A features file for Liftoff. This is just a line-separated list of the vertebrate conserved elements being mapped. 
     
 #### Outputs ####
   
