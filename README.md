@@ -66,8 +66,8 @@ snakemake -s 2.Snakefile --cores 6 output/sarHar1_workflow_summary.txt --resourc
 ![](Snakefile\_dag.svg)
 
 #### Inputs ####
-  * Snakefile
-      + path to the dataset of vertebrate conserved elements being mapped, labelled with their chromosomal location in mouse (e.g. "{chr}\_phastCons60way\_sarHar1\_liftover.bed")
+  * Snakefiles
+      + rules/lifover.smk: Specify path to the dataset of vertebrate conserved elements being mapped, labelled with their chromosomal location in mouse (e.g. "{chr}\_phastCons60way\_sarHar1\_liftover.bed")
 
   * Config file (config\_compiled.yaml)
     + query\_species: basename for the Liftoff query species. 
@@ -77,6 +77,7 @@ snakemake -s 2.Snakefile --cores 6 output/sarHar1_workflow_summary.txt --resourc
     + list of chromosomes 
     + liftover parameters
     + Liftoff parameters
+    + features : A features file for Liftoff. This is just a line-seperated list of the vertebrate conserved elements being mapped. 
     
 #### Outputs ####
   
