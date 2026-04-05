@@ -35,7 +35,7 @@ All input files (except genome fasta and index files) for an example usage are i
 
 ### Step 0: Get discrete multiple species alignments for vertebrate conserved elements ###
 
-I defined a set of vertebrate conserved elements with phastCONS (more details in Shukla and Gallego Romero, 2025), used the UCSC mafFrags utility ([here](https://github.com/ucscGenomeBrowser/kent)) to extract discrete MSAS for each vertebrate conserved element. The output Multiple Alignment Format (MAF) file was converted to FASTA with the Galaxy MAF to FASTA tool ([here]({https://usegalaxy.org.au/root?tool\_id=MAF\_To\_Fasta1})), and split into a separate FASTA file for each vertebrate conserved element. 
+I defined a set of vertebrate conserved elements with phastCONS (more details in Shukla and Gallego Romero, 2025), used the UCSC mafFrags utility ([here](https://github.com/ucscGenomeBrowser/kent)) to extract discrete MSAS for each vertebrate conserved element. The output Multiple Alignment Format (MAF) file was converted to FASTA with the Galaxy MAF to FASTA tool ([here](https://usegalaxy.org.au/root?tool\_id=MAF\_To\_Fasta1)), and split into a separate FASTA file for each vertebrate conserved element. 
 
 ### Step 1: Make individual directories per target species ###
 
