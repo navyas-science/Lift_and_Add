@@ -1,0 +1,17 @@
+2026-04-05 22:17:42,707 - INFO - Populating features
+Populating features table and first-order relations: 0 features2026-04-05 22:17:42,708 - INFO - Populating features table and first-order relations: 4 features
+2026-04-05 22:17:42,708 - INFO - Updating relations
+2026-04-05 22:17:42,708 - INFO - Creating relations(parent) index
+2026-04-05 22:17:42,709 - INFO - Creating relations(child) index
+2026-04-05 22:17:42,709 - INFO - Creating features(featuretype) index
+2026-04-05 22:17:42,709 - INFO - Creating features (seqid, start, end) index
+2026-04-05 22:17:42,709 - INFO - Creating features (seqid, start, end, strand) index
+2026-04-05 22:17:42,709 - INFO - Running ANALYZE features
+[M::main::5.202*1.00] loaded/built the index for 149116 target sequence(s)
+[M::mm_mapopt_update::6.556*1.00] mid_occ = 673
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 149116
+[M::mm_idx_stat::7.248*1.00] distinct minimizers: 94112534 (38.08% are singletons); average occurrences: 6.109; average spacing: 5.873; total length: 3376774453
+[M::worker_pipeline::7.248*1.00] mapped 5 sequences
+[M::main] Version: 2.30-r1287
+[M::main] CMD: minimap2 -o example/output/liftoff_intermediate/reference_all_to_target_all.sam -a --end-bonus 5 --eqx -N 50 -p 0.5 -t 1 example/genomes/UniMelb_ThyCyn2_0_hybrid_assembly.fsa.mmi example/output/liftoff_intermediate/reference_all_genes.fa
+[M::main] Real time: 7.527 sec; CPU: 7.511 sec; Peak RSS: 8.015 GB

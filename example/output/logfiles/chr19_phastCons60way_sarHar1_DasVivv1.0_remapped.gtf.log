@@ -1,0 +1,23 @@
+2026-04-05 22:13:22,631 - INFO - Populating features
+Traceback (most recent call last):
+  File "/home/navyas/.conda/envs/liftadd/bin/liftoff", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/liftoff/run_liftoff.py", line 12, in main
+    run_all_liftoff_steps(args)
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/liftoff/run_liftoff.py", line 24, in run_all_liftoff_steps
+    feature_db, feature_hierarchy, ref_parent_order = liftover_types.lift_original_annotation(ref_chroms, target_chroms,
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/liftoff/liftover_types.py", line 11, in lift_original_annotation
+    feature_hierarchy, feature_db, ref_parent_order = extract_features.extract_features_to_lift(ref_chroms,
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/liftoff/extract_features.py", line 17, in extract_features_to_lift
+    feature_db = create_feature_db_connections(args)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/liftoff/extract_features.py", line 33, in create_feature_db_connections
+    feature_db = build_database(args.db, args.g, disable_transcripts, disable_genes)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/liftoff/extract_features.py", line 48, in build_database
+    return feature_db
+           ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'feature_db' where it is not associated with a value

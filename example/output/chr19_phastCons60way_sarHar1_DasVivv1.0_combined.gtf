@@ -1,0 +1,11 @@
+##gff-version 3
+# Liftoff v1.6.3
+# /home/navyas/.conda/envs/liftadd/bin/liftoff -g example/output/chr19_phastCons60way_sarHar1_liftover_edited.gtf -f example/features.txt -exclude_partial -dir example/output/liftoff_intermediate -flank 0 example/genomes/GCA_020854095.1_UniMelb_DasViv_v1.0_genomic.fna example/genomes/sarHar1.fa -o example/output/chr19_phastCons60way_sarHar1_DasVivv1.0_mapped.gtf -u example/output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.txt
+CM037002.1	Liftoff	chr19_10030366-10030487	244726504	244726624	.	-	.	ID=chr19_10030366-10030487_1;chr19_10030366-10030487=;coverage=1.0;sequence_ID=0.975;extra_copy_number=0;copy_num_ID=chr19_10030366-10030487_1_0
+CM037002.1	Liftoff	chr19_10030147-10030280	244726697	244726829	.	-	.	ID=chr19_10030147-10030280_1;chr19_10030147-10030280=;coverage=1.0;sequence_ID=1.0;extra_copy_number=0;copy_num_ID=chr19_10030147-10030280_1_0
+CM037002.1	Liftoff	chr19_10028281-10028448	244728577	244728743	.	-	.	ID=chr19_10028281-10028448_1;chr19_10028281-10028448=;coverage=1.0;sequence_ID=0.988;extra_copy_number=0;copy_num_ID=chr19_10028281-10028448_1_0
+CM037002.1	Liftoff	chr19_10027557-10027643	244729623	244729708	.	-	.	ID=chr19_10027557-10027643_1;chr19_10027557-10027643=;coverage=1.0;sequence_ID=0.988;extra_copy_number=0;copy_num_ID=chr19_10027557-10027643_1_0
+CM037002.1	Liftoff	chr19_10027381-10027481	244732289	244732388	.	-	.	ID=chr19_10027381-10027481_1;chr19_10027381-10027481=;coverage=1.0;sequence_ID=0.98;extra_copy_number=0;copy_num_ID=chr19_10027381-10027481_1_0
+CM037002.1	Liftoff	chr19_10025668-10025742	244734954	244735032	.	-	.	ID=chr19_10025668-10025742_1;chr19_10025668-10025742=;coverage=1.0;sequence_ID=1.0;extra_copy_number=0;copy_num_ID=chr19_10025668-10025742_1_0
+CM037002.1	Liftoff	chr19_10013921-10014071	244762627	244762775	.	-	.	ID=chr19_10013921-10014071_1;chr19_10013921-10014071=;coverage=1.0;sequence_ID=0.986;extra_copy_number=0;copy_num_ID=chr19_10013921-10014071_1_0
+CM037002.1	Liftoff	chr19_10013175-10013225	244763809	244763865	.	-	.	ID=chr19_10013175-10013225_1;chr19_10013175-10013225=;coverage=1.0;sequence_ID=1.0;extra_copy_number=0;copy_num_ID=chr19_10013175-10013225_1_0

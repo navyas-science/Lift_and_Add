@@ -1,0 +1,17 @@
+2026-04-05 22:17:31,910 - INFO - Populating features
+Populating features table and first-order relations: 0 featuresPopulating features table and first-order relations: 1000 featuresPopulating features table and first-order relations: 2000 featuresPopulating features table and first-order relations: 3000 featuresPopulating features table and first-order relations: 4000 featuresPopulating features table and first-order relations: 5000 featuresPopulating features table and first-order relations: 6000 featuresPopulating features table and first-order relations: 7000 featuresPopulating features table and first-order relations: 8000 featuresPopulating features table and first-order relations: 9000 featuresPopulating features table and first-order relations: 10000 featuresPopulating features table and first-order relations: 11000 featuresPopulating features table and first-order relations: 12000 features2026-04-05 22:17:32,096 - INFO - Populating features table and first-order relations: 12344 features
+2026-04-05 22:17:32,097 - INFO - Updating relations
+2026-04-05 22:17:32,133 - INFO - Creating relations(parent) index
+2026-04-05 22:17:32,133 - INFO - Creating relations(child) index
+2026-04-05 22:17:32,134 - INFO - Creating features(featuretype) index
+2026-04-05 22:17:32,135 - INFO - Creating features (seqid, start, end) index
+2026-04-05 22:17:32,138 - INFO - Creating features (seqid, start, end, strand) index
+2026-04-05 22:17:32,141 - INFO - Running ANALYZE features
+[M::main::5.182*1.00] loaded/built the index for 149116 target sequence(s)
+[M::mm_mapopt_update::6.533*1.00] mid_occ = 673
+[M::mm_idx_stat] kmer size: 15; skip: 10; is_hpc: 0; #seq: 149116
+[M::mm_idx_stat::7.233*1.00] distinct minimizers: 94112534 (38.08% are singletons); average occurrences: 6.109; average spacing: 5.873; total length: 3376774453
+[M::worker_pipeline::7.233*1.00] mapped 8 sequences
+[M::main] Version: 2.30-r1287
+[M::main] CMD: minimap2 -o example/output/liftoff_intermediate/reference_all_to_target_all.sam -a --end-bonus 5 --eqx -N 50 -p 0.5 -t 1 example/genomes/UniMelb_ThyCyn2_0_hybrid_assembly.fsa.mmi example/output/liftoff_intermediate/reference_all_genes.fa
+[M::main] Real time: 7.513 sec; CPU: 7.497 sec; Peak RSS: 8.015 GB

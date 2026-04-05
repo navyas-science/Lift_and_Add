@@ -1,0 +1,3 @@
+assembly	genomePath	index
+DasVivv1.0	example/genomes/GCA_020854095.1_UniMelb_DasViv_v1.0_genomic.fna	example/genomes/GCA_020854095.1_UniMelb_DasViv_v1.0_genomic.fna.fai
+ThyCyn2.0	example/genomes/UniMelb_ThyCyn2_0_hybrid_assembly.fsa	example/genomes/UniMelb_ThyCyn2_0_hybrid_assembly.fsa.fai

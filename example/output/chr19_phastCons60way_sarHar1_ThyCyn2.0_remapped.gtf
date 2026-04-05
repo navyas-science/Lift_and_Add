@@ -1,0 +1,4 @@
+##gff-version 3
+# Liftoff v1.6.3
+# /home/navyas/.conda/envs/liftadd/bin/liftoff -g example/output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.gtf -f example/features.txt -dir example/output/liftoff_intermediate -exclude_partial -flank 1 example/genomes/UniMelb_ThyCyn2_0_hybrid_assembly.fsa example/genomes/sarHar1.fa -o example/output/chr19_phastCons60way_sarHar1_ThyCyn2.0_remapped.gtf -u example/output/chr19_phastCons60way_sarHar1_ThyCyn2.0_remapfail.txt
+scaffold_42602	Liftoff	chr19_10013921-10014071	133	532	.	-	.	ID=chr19_10013921-10014071_1;chr19_10013921-10014071=;coverage=0.874;sequence_ID=0.743;extra_copy_number=0;copy_num_ID=chr19_10013921-10014071_1_0

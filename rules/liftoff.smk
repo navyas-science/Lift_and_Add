@@ -1,3 +1,4 @@
+import os
 
 #Convert the output bed file from liftOver to gff, for Liftoff
 
@@ -27,7 +28,7 @@ rule editgtf:
 
 #Liftoff from the query genome to each of the target genomes 
 
-rule liftoff:
+checkpoint liftoff:
  input:
     gtf="{path}/{chr}_phastCons60way_{query}_liftover_edited.gtf",
     features=config["features"],
@@ -48,11 +49,22 @@ rule liftoff:
     liftoff -g {input.gtf} -f {input.features} -exclude_partial -dir {input.intermediate_dir}  -flank {params.flank} {input.target_genome} {input.query_genome} -o {output.mapped} -u {output.unmapped}  2> {log}
     """
 
+#Checkpoint - are there any unmapped elements?
+def check_unmapped(wildcards):
+    ckpt = checkpoints.liftoff.get(**wildcards)
+    mapped = ckpt.output.mapped
+    unmapped = ckpt.output.unmapped
+
+    if os.path.getsize(unmapped) == 0:
+       return [mapped]
+    else:
+       return [mapped, "{path}/{chr}_phastCons60way_{query}_{target_species}_remapped.gtf"]
+
 #Retrieve and format elements that did not map without any flanking sequences 
 
 rule get_unmapped:
  input:
-     unmapped="{path}/{chr}_phastCons60way_{query}_{target_species}_unmapped.txt",
+     unmapped="{path}/{chr}_phastCons60way_{query}_{target_species}_unmapped.txt"
  output:
      unmappedtxt="{path}/{chr}_phastCons60way_{query}_{target_species}_unmapped_edited.txt",
  log:
@@ -102,15 +114,14 @@ rule remap:
 
 rule combine_mapped:
  input:
-    mapped="{path}/{chr}_phastCons60way_{query}_{target_species}_mapped.gtf",
-    remapped="{path}/{chr}_phastCons60way_{query}_{target_species}_remapped.gtf"
+    check_unmapped
  output:
     combined="{path}/{chr}_phastCons60way_{query}_{target_species}_combined.gtf",
  log:
     "{path}/logfiles/{chr}_phastCons60way_liftoff_{query}_{target_species}.mapped.bed.log"
  shell:
     """
-    cat {input.mapped} {input.remapped} > {output.combined} 2> {log}
+    cat {input} > {output.combined} 2> {log}
     """
     
 rule gtf2bed:
