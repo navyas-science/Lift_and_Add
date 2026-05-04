@@ -30,4 +30,4 @@ include: "rules/summary_file.smk"
 
 rule all:
  input:
-        expand("{path}/{target_species}/{chr}_{query}_{target_species}_list.txt", path=config["working_dir"], chr=config["chromosomes"],target_species=config["target_species_list"], query=config["query_species"])
+        expand("{path}/{target_species}/{chr}_{query}_{target_species}_list.txt", path=path, chr=CHR,target_species=target_species, query=query_species)
