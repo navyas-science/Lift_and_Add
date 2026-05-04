@@ -1,0 +1,890 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Provided resources: exclusive=1
+Job stats:
+job                count
+---------------  -------
+bed2gtf                1
+clean_bedfile          6
+combine_mapped         6
+editgtf                1
+finish                 1
+format_unmapped        6
+get_fasta              6
+get_unmapped           6
+gtf2bed                6
+liftoff                6
+liftover               1
+remap                  6
+split_fasta            6
+total                 58
+
+Select jobs to execute...
+
+[Sun Feb  1 18:58:19 2026]
+rule liftover:
+    input: data/chain_files/mm10ToSarHar1.over.chain.gz, data/mm10/chr19_60way_most_conserved_merged_size_edited.bed
+    output: output/chr19_phastCons60way_sarHar1_liftover.bed, output/chr19_phastCons60way_sarHar1_unlifted.bed
+    log: output/logfiles/chr19_phastCons60way_sarHar1_liftover.log
+    jobid: 9
+    reason: Forced execution
+    wildcards: path=output, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:58:20 2026]
+Finished job 9.
+1 of 58 steps (2%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:58:20 2026]
+rule bed2gtf:
+    input: output/chr19_phastCons60way_sarHar1_liftover.bed
+    output: output/chr19_phastCons60way_sarHar1_liftover.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1.gtf.log
+    jobid: 8
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover.bed
+    wildcards: path=output, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:58:20 2026]
+Finished job 8.
+2 of 58 steps (3%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:58:20 2026]
+rule editgtf:
+    input: output/chr19_phastCons60way_sarHar1_liftover.gtf
+    output: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1_edited.gtf.log
+    jobid: 7
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover.gtf
+    wildcards: path=output, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:58:20 2026]
+Finished job 7.
+3 of 58 steps (5%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:58:20 2026]
+rule liftoff:
+    input: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/mDroGli1/GCF_019393635.1_mDroGli1.pri_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_mDroGli1_mapped.gtf, output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mDroGli1_mapped.gtf.log
+    jobid: 54
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 18:58:40 2026]
+Finished job 54.
+4 of 58 steps (7%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:58:40 2026]
+rule get_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped.txt
+    output: output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped_edited.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mDroGli1_unmapped.log
+    jobid: 57
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped.txt
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+
+[Sun Feb  1 18:58:40 2026]
+rule liftoff:
+    input: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/mSarHar1.11/Sarcophilus_harrisii.mSarHar1.11.dna.toplevel.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf.log
+    jobid: 18
+    reason: Missing output files: output/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.txt; Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 18:58:40 2026]
+Finished job 57.
+5 of 58 steps (9%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:58:40 2026]
+rule format_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped_edited.txt, output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    output: output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mDroGli1_unmapped_format.log
+    jobid: 56
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped_edited.txt
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:58:40 2026]
+Finished job 56.
+6 of 58 steps (10%) done
+Select jobs to execute...
+[Sun Feb  1 18:59:00 2026]
+Finished job 18.
+7 of 58 steps (12%) done
+
+[Sun Feb  1 18:59:00 2026]
+rule liftoff:
+    input: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/AStuM/GCA_016696395.1_USYD_AStu_M_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_AStuM_mapped.gtf, output/chr19_phastCons60way_sarHar1_AStuM_unmapped.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_AStuM_mapped.gtf.log
+    jobid: 27
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+
+[Sun Feb  1 18:59:00 2026]
+rule get_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.txt
+    output: output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped_edited.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.log
+    jobid: 21
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.txt
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:00 2026]
+Finished job 21.
+8 of 58 steps (14%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:59:01 2026]
+rule format_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped_edited.txt, output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    output: output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped_format.log
+    jobid: 20
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped_edited.txt
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:01 2026]
+Finished job 20.
+9 of 58 steps (16%) done
+Select jobs to execute...
+[Sun Feb  1 18:59:20 2026]
+Finished job 27.
+10 of 58 steps (17%) done
+
+[Sun Feb  1 18:59:20 2026]
+rule get_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_AStuM_unmapped.txt
+    output: output/chr19_phastCons60way_sarHar1_AStuM_unmapped_edited.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_AStuM_unmapped.log
+    jobid: 30
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_AStuM_unmapped.txt
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+
+[Sun Feb  1 18:59:20 2026]
+rule remap:
+    input: output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/mDroGli1/GCF_019393635.1_mDroGli1.pri_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_mDroGli1_remapped.gtf, output/chr19_phastCons60way_sarHar1_mDroGli1_remapfail.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mDroGli1_remapped.gtf.log
+    jobid: 55
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mDroGli1_unmapped.gtf
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 18:59:21 2026]
+Finished job 30.
+11 of 58 steps (19%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:59:21 2026]
+rule format_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_AStuM_unmapped_edited.txt, output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    output: output/chr19_phastCons60way_sarHar1_AStuM_unmapped.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1_AStuM_unmapped_format.log
+    jobid: 29
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, output/chr19_phastCons60way_sarHar1_AStuM_unmapped_edited.txt
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:21 2026]
+Finished job 29.
+12 of 58 steps (21%) done
+Select jobs to execute...
+[Sun Feb  1 18:59:38 2026]
+Finished job 55.
+13 of 58 steps (22%) done
+
+[Sun Feb  1 18:59:38 2026]
+rule liftoff:
+    input: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/DasVivv1.0/GCA_020854095.1_UniMelb_DasViv_v1.0_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_DasVivv1.0_mapped.gtf, output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_DasVivv1.0_mapped.gtf.log
+    jobid: 36
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+
+[Sun Feb  1 18:59:38 2026]
+rule combine_mapped:
+    input: output/chr19_phastCons60way_sarHar1_mDroGli1_mapped.gtf, output/chr19_phastCons60way_sarHar1_mDroGli1_remapped.gtf
+    output: output/chr19_phastCons60way_sarHar1_mDroGli1_combined.gtf
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mDroGli1.mapped.bed.log
+    jobid: 53
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mDroGli1_mapped.gtf, output/chr19_phastCons60way_sarHar1_mDroGli1_remapped.gtf
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:38 2026]
+Finished job 53.
+14 of 58 steps (24%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:59:38 2026]
+rule gtf2bed:
+    input: output/chr19_phastCons60way_sarHar1_mDroGli1_combined.gtf
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mDroGli1.mapped.bed.log
+    jobid: 52
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mDroGli1_combined.gtf
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:39 2026]
+Finished job 52.
+15 of 58 steps (26%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:59:39 2026]
+rule clean_bedfile:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped.bed
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped_cleaned.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mDroGli1.mapped.bed.log
+    jobid: 51
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped.bed
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:40 2026]
+Finished job 51.
+16 of 58 steps (28%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:59:40 2026]
+rule get_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped_cleaned.bed, data/genomes/mDroGli1/GCF_019393635.1_mDroGli1.pri_genomic.fna, data/genomes/mDroGli1/GCF_019393635.1_mDroGli1.pri_genomic.fna.fai
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped_cleaned.fa
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped_cleaned_filtered.fa
+    jobid: 50
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped_cleaned.bed
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:43 2026]
+Finished job 50.
+17 of 58 steps (29%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:59:43 2026]
+rule split_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped_cleaned.fa, output/mDroGli1
+    output: output/mDroGli1/chr19_sarHar1_mDroGli1_list.txt
+    log: output/logfiles/chr19_sarHar1_mDroGli1_faSplit.log
+    jobid: 49
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mDroGli1_mapped_cleaned.fa
+    wildcards: path=output, target_species=mDroGli1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 18:59:58 2026]
+Finished job 36.
+18 of 58 steps (31%) done
+Select jobs to execute...
+
+[Sun Feb  1 18:59:58 2026]
+rule remap:
+    input: output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/mSarHar1.11/Sarcophilus_harrisii.mSarHar1.11.dna.toplevel.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_mSarHar1.11_remapped.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_remapfail.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mSarHar1.11_remapped.gtf.log
+    jobid: 19
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.gtf
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 19:00:11 2026]
+Finished job 19.
+19 of 58 steps (33%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:00:11 2026]
+rule liftoff:
+    input: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_mapped.gtf, output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_ThyCyn2.0_mapped.gtf.log
+    jobid: 6
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 19:00:33 2026]
+Finished job 6.
+20 of 58 steps (34%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:00:33 2026]
+rule remap:
+    input: output/chr19_phastCons60way_sarHar1_AStuM_unmapped.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/AStuM/GCA_016696395.1_USYD_AStu_M_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_AStuM_remapped.gtf, output/chr19_phastCons60way_sarHar1_AStuM_remapfail.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_AStuM_remapped.gtf.log
+    jobid: 28
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_AStuM_unmapped.gtf
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 19:00:47 2026]
+Finished job 28.
+21 of 58 steps (36%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:00:47 2026]
+rule liftoff:
+    input: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/mMyrFas1/GCA_023553655.1_mMyrfas1.20211206_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_mMyrFas1_mapped.gtf, output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mMyrFas1_mapped.gtf.log
+    jobid: 45
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 19:01:09 2026]
+Finished job 45.
+22 of 58 steps (38%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:09 2026]
+rule combine_mapped:
+    input: output/chr19_phastCons60way_sarHar1_AStuM_mapped.gtf, output/chr19_phastCons60way_sarHar1_AStuM_remapped.gtf
+    output: output/chr19_phastCons60way_sarHar1_AStuM_combined.gtf
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_AStuM.mapped.bed.log
+    jobid: 26
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_AStuM_remapped.gtf, output/chr19_phastCons60way_sarHar1_AStuM_mapped.gtf
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:09 2026]
+Finished job 26.
+23 of 58 steps (40%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:09 2026]
+rule get_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.txt
+    output: output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped_edited.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.log
+    jobid: 39
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.txt
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:09 2026]
+Finished job 39.
+24 of 58 steps (41%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:09 2026]
+rule get_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped.txt
+    output: output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped_edited.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped.log
+    jobid: 48
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped.txt
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:09 2026]
+Finished job 48.
+25 of 58 steps (43%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:09 2026]
+rule gtf2bed:
+    input: output/chr19_phastCons60way_sarHar1_AStuM_combined.gtf
+    output: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_AStuM.mapped.bed.log
+    jobid: 25
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_AStuM_combined.gtf
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:10 2026]
+Finished job 25.
+26 of 58 steps (45%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:10 2026]
+rule clean_bedfile:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped.bed
+    output: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped_cleaned.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_AStuM.mapped.bed.log
+    jobid: 24
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped.bed
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:11 2026]
+Finished job 24.
+27 of 58 steps (47%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:11 2026]
+rule get_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.txt
+    output: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped_edited.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.log
+    jobid: 12
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.txt
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:11 2026]
+Finished job 12.
+28 of 58 steps (48%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:11 2026]
+rule format_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped_edited.txt, output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    output: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped_format.log
+    jobid: 11
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped_edited.txt
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:11 2026]
+Finished job 11.
+29 of 58 steps (50%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:11 2026]
+rule remap:
+    input: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_remapped.gtf, output/chr19_phastCons60way_sarHar1_ThyCyn2.0_remapfail.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_ThyCyn2.0_remapped.gtf.log
+    jobid: 10
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.gtf
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 19:01:28 2026]
+Finished job 10.
+30 of 58 steps (52%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:28 2026]
+rule combine_mapped:
+    input: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_mapped.gtf, output/chr19_phastCons60way_sarHar1_ThyCyn2.0_remapped.gtf
+    output: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_combined.gtf
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0.mapped.bed.log
+    jobid: 5
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_mapped.gtf, output/chr19_phastCons60way_sarHar1_ThyCyn2.0_remapped.gtf
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:28 2026]
+Finished job 5.
+31 of 58 steps (53%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:28 2026]
+rule get_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped_cleaned.bed, data/genomes/AStuM/GCA_016696395.1_USYD_AStu_M_genomic.fna, data/genomes/AStuM/GCA_016696395.1_USYD_AStu_M_genomic.fna.fai
+    output: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped_cleaned.fa
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped_cleaned_filtered.fa
+    jobid: 23
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped_cleaned.bed
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:01:32 2026]
+Finished job 23.
+32 of 58 steps (55%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:01:32 2026]
+rule split_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped_cleaned.fa, output/AStuM
+    output: output/AStuM/chr19_sarHar1_AStuM_list.txt
+    log: output/logfiles/chr19_sarHar1_AStuM_faSplit.log
+    jobid: 22
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_AStuM_mapped_cleaned.fa
+    wildcards: path=output, target_species=AStuM, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:02:17 2026]
+Finished job 49.
+33 of 58 steps (57%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:02:17 2026]
+rule combine_mapped:
+    input: output/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_remapped.gtf
+    output: output/chr19_phastCons60way_sarHar1_mSarHar1.11_combined.gtf
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11.mapped.bed.log
+    jobid: 17
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mSarHar1.11_remapped.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:02:17 2026]
+Finished job 17.
+34 of 58 steps (59%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:02:17 2026]
+rule gtf2bed:
+    input: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_combined.gtf
+    output: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0.mapped.bed.log
+    jobid: 4
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_ThyCyn2.0_combined.gtf
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:02:17 2026]
+Finished job 4.
+35 of 58 steps (60%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:02:17 2026]
+rule clean_bedfile:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped.bed
+    output: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0.mapped.bed.log
+    jobid: 3
+    reason: Missing output files: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned.bed; Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped.bed
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:02:18 2026]
+Finished job 3.
+36 of 58 steps (62%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:02:19 2026]
+rule gtf2bed:
+    input: output/chr19_phastCons60way_sarHar1_mSarHar1.11_combined.gtf
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11.mapped.bed.log
+    jobid: 16
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mSarHar1.11_combined.gtf
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:02:19 2026]
+Finished job 16.
+37 of 58 steps (64%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:02:19 2026]
+rule clean_bedfile:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped.bed
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped_cleaned.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11.mapped.bed.log
+    jobid: 15
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped.bed
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:02:20 2026]
+Finished job 15.
+38 of 58 steps (66%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:02:20 2026]
+rule get_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped_cleaned.bed, data/genomes/mSarHar1.11/Sarcophilus_harrisii.mSarHar1.11.dna.toplevel.fna, data/genomes/mSarHar1.11/Sarcophilus_harrisii.mSarHar1.11.dna.toplevel.fna.fai
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped_cleaned.fa
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped_cleaned_filtered.fa
+    jobid: 14
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped_cleaned.bed
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:02:23 2026]
+Finished job 14.
+39 of 58 steps (67%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:02:23 2026]
+rule split_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped_cleaned.fa, output/mSarHar1.11
+    output: output/mSarHar1.11/chr19_sarHar1_mSarHar1.11_list.txt
+    log: output/logfiles/chr19_sarHar1_mSarHar1.11_faSplit.log
+    jobid: 13
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mSarHar1.11_mapped_cleaned.fa
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:04:53 2026]
+Finished job 22.
+40 of 58 steps (69%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:04:53 2026]
+rule format_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped_edited.txt, output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    output: output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped_format.log
+    jobid: 47
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped_edited.txt
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:04:53 2026]
+Finished job 47.
+41 of 58 steps (71%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:04:53 2026]
+rule remap:
+    input: output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/mMyrFas1/GCA_023553655.1_mMyrfas1.20211206_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_mMyrFas1_remapped.gtf, output/chr19_phastCons60way_sarHar1_mMyrFas1_remapfail.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mMyrFas1_remapped.gtf.log
+    jobid: 46
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mMyrFas1_unmapped.gtf
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 19:05:15 2026]
+Finished job 46.
+42 of 58 steps (72%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:15 2026]
+rule combine_mapped:
+    input: output/chr19_phastCons60way_sarHar1_mMyrFas1_mapped.gtf, output/chr19_phastCons60way_sarHar1_mMyrFas1_remapped.gtf
+    output: output/chr19_phastCons60way_sarHar1_mMyrFas1_combined.gtf
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1.mapped.bed.log
+    jobid: 44
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mMyrFas1_remapped.gtf, output/chr19_phastCons60way_sarHar1_mMyrFas1_mapped.gtf
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:15 2026]
+Finished job 44.
+43 of 58 steps (74%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:15 2026]
+rule format_unmapped:
+    input: output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped_edited.txt, output/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    output: output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.gtf
+    log: output/logfiles/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped_format.log
+    jobid: 38
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped_edited.txt
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:15 2026]
+Finished job 38.
+44 of 58 steps (76%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:15 2026]
+rule remap:
+    input: output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/DasVivv1.0/GCA_020854095.1_UniMelb_DasViv_v1.0_genomic.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_DasVivv1.0_remapped.gtf, output/chr19_phastCons60way_sarHar1_DasVivv1.0_remapfail.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_DasVivv1.0_remapped.gtf.log
+    jobid: 37
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_DasVivv1.0_unmapped.gtf
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp, exclusive=1
+
+[Sun Feb  1 19:05:28 2026]
+Finished job 37.
+45 of 58 steps (78%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:28 2026]
+rule combine_mapped:
+    input: output/chr19_phastCons60way_sarHar1_DasVivv1.0_mapped.gtf, output/chr19_phastCons60way_sarHar1_DasVivv1.0_remapped.gtf
+    output: output/chr19_phastCons60way_sarHar1_DasVivv1.0_combined.gtf
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0.mapped.bed.log
+    jobid: 35
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_DasVivv1.0_mapped.gtf, output/chr19_phastCons60way_sarHar1_DasVivv1.0_remapped.gtf
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:28 2026]
+Finished job 35.
+46 of 58 steps (79%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:28 2026]
+rule gtf2bed:
+    input: output/chr19_phastCons60way_sarHar1_DasVivv1.0_combined.gtf
+    output: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0.mapped.bed.log
+    jobid: 34
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_DasVivv1.0_combined.gtf
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:29 2026]
+Finished job 34.
+47 of 58 steps (81%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:29 2026]
+rule clean_bedfile:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped.bed
+    output: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped_cleaned.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0.mapped.bed.log
+    jobid: 33
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped.bed
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:30 2026]
+Finished job 33.
+48 of 58 steps (83%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:30 2026]
+rule get_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped_cleaned.bed, data/genomes/DasVivv1.0/GCA_020854095.1_UniMelb_DasViv_v1.0_genomic.fna, data/genomes/DasVivv1.0/GCA_020854095.1_UniMelb_DasViv_v1.0_genomic.fna.fai
+    output: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped_cleaned.fa
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped_cleaned_filtered.fa
+    jobid: 32
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped_cleaned.bed
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:33 2026]
+Finished job 32.
+49 of 58 steps (84%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:33 2026]
+rule split_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped_cleaned.fa, output/DasVivv1.0
+    output: output/DasVivv1.0/chr19_sarHar1_DasVivv1.0_list.txt
+    log: output/logfiles/chr19_sarHar1_DasVivv1.0_faSplit.log
+    jobid: 31
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_DasVivv1.0_mapped_cleaned.fa
+    wildcards: path=output, target_species=DasVivv1.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:46 2026]
+Finished job 13.
+50 of 58 steps (86%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:46 2026]
+rule gtf2bed:
+    input: output/chr19_phastCons60way_sarHar1_mMyrFas1_combined.gtf
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1.mapped.bed.log
+    jobid: 43
+    reason: Input files updated by another job: output/chr19_phastCons60way_sarHar1_mMyrFas1_combined.gtf
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:46 2026]
+Finished job 43.
+51 of 58 steps (88%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:46 2026]
+rule get_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned.bed, data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa, data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa.fai
+    output: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned.fa
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned_filtered.fa
+    jobid: 2
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned.bed
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:05:51 2026]
+Finished job 2.
+52 of 58 steps (90%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:05:51 2026]
+rule split_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned.fa, output/ThyCyn2.0
+    output: output/ThyCyn2.0/chr19_sarHar1_ThyCyn2.0_list.txt
+    log: output/logfiles/chr19_sarHar1_ThyCyn2.0_faSplit.log
+    jobid: 1
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_ThyCyn2.0_mapped_cleaned.fa
+    wildcards: path=output, target_species=ThyCyn2.0, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:08:54 2026]
+Finished job 1.
+53 of 58 steps (91%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:08:54 2026]
+rule clean_bedfile:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped.bed
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped_cleaned.bed
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1.mapped.bed.log
+    jobid: 42
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped.bed
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:08:55 2026]
+Finished job 31.
+54 of 58 steps (93%) done
+[Sun Feb  1 19:08:55 2026]
+Finished job 42.
+55 of 58 steps (95%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:08:55 2026]
+rule get_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped_cleaned.bed, data/genomes/mMyrFas1/GCA_023553655.1_mMyrfas1.20211206_genomic.fna, data/genomes/mMyrFas1/GCA_023553655.1_mMyrfas1.20211206_genomic.fna.fai
+    output: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped_cleaned.fa
+    log: output/logfiles/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped_cleaned_filtered.fa
+    jobid: 41
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped_cleaned.bed
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:08:58 2026]
+Finished job 41.
+56 of 58 steps (97%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:08:58 2026]
+rule split_fasta:
+    input: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped_cleaned.fa, output/mMyrFas1
+    output: output/mMyrFas1/chr19_sarHar1_mMyrFas1_list.txt
+    log: output/logfiles/chr19_sarHar1_mMyrFas1_faSplit.log
+    jobid: 40
+    reason: Input files updated by another job: output/chr19_phastCons60way_liftoff_sarHar1_mMyrFas1_mapped_cleaned.fa
+    wildcards: path=output, target_species=mMyrFas1, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:12:02 2026]
+Finished job 40.
+57 of 58 steps (98%) done
+Select jobs to execute...
+
+[Sun Feb  1 19:12:02 2026]
+rule finish:
+    input: output/ThyCyn2.0/chr19_sarHar1_ThyCyn2.0_list.txt, output/mSarHar1.11/chr19_sarHar1_mSarHar1.11_list.txt, output/AStuM/chr19_sarHar1_AStuM_list.txt, output/DasVivv1.0/chr19_sarHar1_DasVivv1.0_list.txt, output/mMyrFas1/chr19_sarHar1_mMyrFas1_list.txt, output/mDroGli1/chr19_sarHar1_mDroGli1_list.txt
+    output: output/sarHar1_workflow_summary.txt, output/sarHar1_regions_list.txt
+    log: output/logfiles/sarHar1_finish.log
+    jobid: 0
+    reason: Input files updated by another job: output/AStuM/chr19_sarHar1_AStuM_list.txt, output/DasVivv1.0/chr19_sarHar1_DasVivv1.0_list.txt, output/ThyCyn2.0/chr19_sarHar1_ThyCyn2.0_list.txt, output/mMyrFas1/chr19_sarHar1_mMyrFas1_list.txt, output/mSarHar1.11/chr19_sarHar1_mSarHar1.11_list.txt, output/mDroGli1/chr19_sarHar1_mDroGli1_list.txt
+    wildcards: path=output, query=sarHar1
+    resources: tmpdir=/tmp
+
+[Sun Feb  1 19:12:04 2026]
+Finished job 0.
+58 of 58 steps (100%) done
+Complete log: .snakemake/log/2026-02-01T185817.552566.snakemake.log

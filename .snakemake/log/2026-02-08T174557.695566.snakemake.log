@@ -1,0 +1,14 @@
+Building DAG of jobs...
+InputFunctionException in rule get_fasta in file /data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile, line 188:
+Error:
+  KeyError: 'VulVul2'
+Wildcards:
+  path=output
+  target_species=VulVul2
+  chr=chr19
+  query=canFam3
+Traceback:
+  File "/data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile", line 18, in genome_for_species
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/pandas/core/indexing.py", line 1199, in __getitem__
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/pandas/core/frame.py", line 4495, in _get_value
+  File "/home/navyas/.conda/envs/liftadd/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 3648, in get_loc

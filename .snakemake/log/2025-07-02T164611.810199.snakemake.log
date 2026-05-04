@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule liftover in file /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/code/mapping_workflow_v2/2.Snakefile, line 36:
+Missing input files for rule liftover:
+    output: /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/chr18_phastCons60way_sarHar1_liftover.bed, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/chr18_phastCons60way_sarHar1_unlifted.bed
+    wildcards: path=/data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test, chr=chr18, ref_species=sarHar1
+    affected files:
+        /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/mm10/chr18_60way_most_conserved_merged_size_edited.bed

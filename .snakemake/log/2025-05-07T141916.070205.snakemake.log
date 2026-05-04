@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job        count
+-------  -------
+summary        1
+total          1
+
+Select jobs to execute...
+
+[Wed May  7 14:19:16 2025]
+rule summary:
+    input: /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/ThyCyn2.0/chr19_ThyCyn2.0_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mSarHar1.11/chr19_mSarHar1.11_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/AStuM/chr19_AStuM_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/DasVivv1.0/chr19_DasVivv1.0_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mMyrFas1/chr19_mMyrFas1_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mDroGli1/chr19_mDroGli1_list.txt
+    output: ../../output/compiled_wflow_test/chr19_lifted_regions_summary.txt, ../../output/compiled_wflow_test/chr19_lifted_regions.txt
+    jobid: 0
+    reason: Missing output files: ../../output/compiled_wflow_test/chr19_lifted_regions_summary.txt
+    wildcards: path=../../output/compiled_wflow_test, chr=chr19
+    resources: tmpdir=/tmp
+
+[Wed May  7 14:19:17 2025]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2025-05-07T141916.070205.snakemake.log

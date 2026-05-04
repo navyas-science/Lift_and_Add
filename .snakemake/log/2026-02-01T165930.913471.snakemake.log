@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job                count
+---------------  -------
+clean_bedfile          6
+combine_mapped         6
+finish                 1
+format_unmapped        6
+get_fasta              6
+get_unmapped           6
+gtf2bed                6
+liftoff                6
+remap                  6
+split_fasta            6
+total                 55
+
+Select jobs to execute...
+
+[Sun Feb  1 16:59:32 2026]
+rule liftoff:
+    input: output/chr19_phastCons60way_sarHar1_liftover_edited.gtf, data/features2.txt, data/genomes/sarHar1/sarHar1.fa, data/genomes/mSarHar1.11/Sarcophilus_harrisii.mSarHar1.11.dna.toplevel.fna, output/liftoff_intermediate
+    output: output/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.txt
+    log: output/logfiles/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf.log
+    jobid: 18
+    reason: Missing output files: output/chr19_phastCons60way_sarHar1_mSarHar1.11_mapped.gtf, output/chr19_phastCons60way_sarHar1_mSarHar1.11_unmapped.txt
+    wildcards: path=output, target_species=mSarHar1.11, chr=chr19, query=sarHar1
+    resources: tmpdir=/tmp
+
+RuleException in rule liftoff in file /data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile, line 76:
+AttributeError: 'InputFiles' object has no attribute 'intermediate', when formatting the following:
+
+    liftoff -g {input.gtf} -f {input.features} -exclude_partial -dir {input.intermediate}  -flank {params.flank} {input.target_genome} {input.query_genome} -o {output.mapped} -u {output.unmapped} --dir  2> {log}
+    

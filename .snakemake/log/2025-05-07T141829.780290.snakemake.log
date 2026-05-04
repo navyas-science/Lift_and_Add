@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job        count
+-------  -------
+summary        1
+total          1
+
+Select jobs to execute...
+
+[Wed May  7 14:18:30 2025]
+rule summary:
+    input: /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/ThyCyn2.0/chr19_ThyCyn2.0_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mSarHar1.11/chr19_mSarHar1.11_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/AStuM/chr19_AStuM_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/DasVivv1.0/chr19_DasVivv1.0_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mMyrFas1/chr19_mMyrFas1_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mDroGli1/chr19_mDroGli1_list.txt
+    output: ../../output/compiled_wflow_test/chr19_lifted_regions_summary.txt, ../../output/compiled_wflow_test/chr19_lifted_regions.txt
+    jobid: 0
+    reason: Code has changed since last execution
+    wildcards: path=../../output/compiled_wflow_test, chr=chr19
+    resources: tmpdir=/tmp
+
+[Wed May  7 14:18:31 2025]
+Error in rule summary:
+    jobid: 0
+    input: /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/ThyCyn2.0/chr19_ThyCyn2.0_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mSarHar1.11/chr19_mSarHar1.11_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/AStuM/chr19_AStuM_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/DasVivv1.0/chr19_DasVivv1.0_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mMyrFas1/chr19_mMyrFas1_list.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mDroGli1/chr19_mDroGli1_list.txt
+    output: ../../output/compiled_wflow_test/chr19_lifted_regions_summary.txt, ../../output/compiled_wflow_test/chr19_lifted_regions.txt
+    shell:
+        
+    Rscript summary.R /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/ThyCyn2.0/chr19_ThyCyn2.0_list.txt /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mSarHar1.11/chr19_mSarHar1.11_list.txt /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/AStuM/chr19_AStuM_list.txt /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/DasVivv1.0/chr19_DasVivv1.0_list.txt /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mMyrFas1/chr19_mMyrFas1_list.txt /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/output/compiled_wflow_test/mDroGli1/chr19_mDroGli1_list.txt ../../output/compiled_wflow_test/chr19_lifted_regions_summary.txt ../../output/compiled_wflow_test/chr19_lifted_regions.txt
+    sed -i 's/\/data\/gpfs\/projects\/punim0586\/nshukla\/thylacine_canid_convergence_reanalysis\/output\/compiled_wflow_test\///g' 
+    
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job summary since they might be corrupted:
+../../output/compiled_wflow_test/chr19_lifted_regions_summary.txt, ../../output/compiled_wflow_test/chr19_lifted_regions.txt
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-05-07T141829.780290.snakemake.log

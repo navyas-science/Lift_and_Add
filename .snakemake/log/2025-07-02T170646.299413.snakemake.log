@@ -1,0 +1,3 @@
+KeyError in file /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/code/mapping_workflow_v2/2.Snakefile, line 84:
+'genome_path_query'
+  File "/data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/code/mapping_workflow_v2/2.Snakefile", line 84, in <module>

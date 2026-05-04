@@ -1,0 +1,7 @@
+KeyboardInterrupt in file /data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile, line 13.
+  File "/data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile", line 13, in <module>
+  File "/apps/easybuild-2022/easybuild/software/MPI/GCC/11.3.0/OpenMPI/4.1.4/SciPy-bundle/2022.05/lib/python3.10/site-packages/pandas/__init__.py", line 48, in <module>
+  File "/apps/easybuild-2022/easybuild/software/MPI/GCC/11.3.0/OpenMPI/4.1.4/SciPy-bundle/2022.05/lib/python3.10/site-packages/pandas/core/api.py", line 48, in <module>
+  File "/apps/easybuild-2022/easybuild/software/MPI/GCC/11.3.0/OpenMPI/4.1.4/SciPy-bundle/2022.05/lib/python3.10/site-packages/pandas/core/groupby/__init__.py", line 1, in <module>
+  File "/apps/easybuild-2022/easybuild/software/MPI/GCC/11.3.0/OpenMPI/4.1.4/SciPy-bundle/2022.05/lib/python3.10/site-packages/pandas/core/groupby/generic.py", line 73, in <module>
+  File "<frozen importlib._bootstrap>", line 1022, in _find_and_load

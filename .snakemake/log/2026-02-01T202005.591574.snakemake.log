@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule all in file /data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile, line 24:
+Missing input files for rule all:
+    affected files:
+        chr19
+        sarHar1

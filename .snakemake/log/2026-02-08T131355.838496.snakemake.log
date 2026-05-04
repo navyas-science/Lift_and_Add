@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule get_fasta in file /data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile, line 188:
+Missing input files for rule get_fasta:
+    output: output/chr19_phastCons60way_liftoff_bosTau7_BosGru3.1_mapped_cleaned.fa
+    wildcards: path=output, target_species=BosGru3.1, chr=chr19, query=bosTau7
+    affected files:
+        data/genomes/BosGru3.1/GCA_005887515.3_BosGru3.1_genomic.fna.fai

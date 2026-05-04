@@ -1,0 +1,138 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+bed2gtf            1
+get_fasta          1
+gtf2bed            1
+liftoff            1
+liftover           1
+remap              1
+split_fasta        1
+unmapped           1
+total              8
+
+Select jobs to execute...
+
+[Tue May  6 16:37:35 2025]
+rule liftover:
+    input: /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/chain_files/mm10ToSarHar1.over.chain.gz, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/mm10/chr19_60way_most_conserved_merged_size_edited.bed
+    output: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover.bed, ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_unlifted.bed
+    log: ../../output/compiled_wflow_test/logfiles/chr19_phastCons60way_sarHar1_liftover.log
+    jobid: 5
+    reason: Forced execution
+    wildcards: path=../../output/compiled_wflow_test, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:37:36 2025]
+Finished job 5.
+1 of 8 steps (12%) done
+Select jobs to execute...
+
+[Tue May  6 16:37:36 2025]
+rule bed2gtf:
+    input: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover.bed
+    output: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover.gtf, ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    log: ../../output/compiled_wflow_test/logfiles/chr19_phastCons60way_sarHar1.gtf.log
+    jobid: 4
+    reason: Input files updated by another job: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover.bed
+    wildcards: path=../../output/compiled_wflow_test, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:37:37 2025]
+Finished job 4.
+2 of 8 steps (25%) done
+Select jobs to execute...
+
+[Tue May  6 16:37:37 2025]
+rule liftoff:
+    input: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover.gtf, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/features2.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/genomes/sarHar1/sarHar1.fa, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa
+    output: ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_mapped.gtf, ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_unmapped.txt
+    log: ../../output/compiled_wflow_test/logfiles/chr19_phastCons60way_ThyCyn2.0_mapped.gtf.log
+    jobid: 3
+    reason: Input files updated by another job: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover.gtf
+    wildcards: path=../../output/compiled_wflow_test, target_species=ThyCyn2.0, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:38:01 2025]
+Finished job 3.
+3 of 8 steps (38%) done
+Select jobs to execute...
+
+[Tue May  6 16:38:01 2025]
+rule unmapped:
+    input: ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_unmapped.txt, ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover_edited.gtf
+    output: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover_ThyCyn2.0_unmapped_edited.txt, ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover_ThyCyn2.0_unmapped.gtf
+    log: ../../output/compiled_wflow_test/logfiles/chr19_phastCons60way_sarHar1_ThyCyn2.0_unmapped.log
+    jobid: 7
+    reason: Input files updated by another job: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover_edited.gtf, ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_unmapped.txt
+    wildcards: path=../../output/compiled_wflow_test, target_species=ThyCyn2.0, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:38:01 2025]
+Finished job 7.
+4 of 8 steps (50%) done
+Select jobs to execute...
+
+[Tue May  6 16:38:01 2025]
+rule remap:
+    input: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover_ThyCyn2.0_unmapped.gtf, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/features2.txt, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/genomes/sarHar1/sarHar1.fa, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa
+    output: ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_remapped.gtf, ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_remapfail.txt
+    log: ../../output/compiled_wflow_test/logfiles/chr19_phastCons60way_ThyCyn2.0_remapped.gtf.log
+    jobid: 6
+    reason: Input files updated by another job: ../../output/compiled_wflow_test/chr19_phastCons60way_sarHar1_liftover_ThyCyn2.0_unmapped.gtf
+    wildcards: path=../../output/compiled_wflow_test, target_species=ThyCyn2.0, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:38:15 2025]
+Finished job 6.
+5 of 8 steps (62%) done
+Select jobs to execute...
+
+[Tue May  6 16:38:15 2025]
+rule gtf2bed:
+    input: ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_mapped.gtf, ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_remapped.gtf
+    output: ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_combined.gtf, ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped.bed, ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned.bed
+    log: ../../output/compiled_wflow_test/logfiles/chr19_phastCons60way_liftoff_ThyCyn2.0.mapped.bed.log
+    jobid: 2
+    reason: Input files updated by another job: ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_remapped.gtf, ../../output/compiled_wflow_test/chr19_phastCons60way_ThyCyn2.0_mapped.gtf
+    wildcards: path=../../output/compiled_wflow_test, target_species=ThyCyn2.0, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:38:17 2025]
+Finished job 2.
+6 of 8 steps (75%) done
+Select jobs to execute...
+
+[Tue May  6 16:38:17 2025]
+rule get_fasta:
+    input: ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned.bed, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa, /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/data/genomes/ThyCyn2.0_hybrid_assembly/UniMelb_ThyCyn2_0_hybrid_assembly.fsa.fai
+    output: ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned_slop.bed, ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned_slop.fa
+    log: ../../output/compiled_wflow_test/logfiles/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned_filtered.fa
+    jobid: 1
+    reason: Input files updated by another job: ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned.bed
+    wildcards: path=../../output/compiled_wflow_test, target_species=ThyCyn2.0, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:38:22 2025]
+Finished job 1.
+7 of 8 steps (88%) done
+Select jobs to execute...
+
+[Tue May  6 16:38:22 2025]
+rule split_fasta:
+    input: ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned_slop.fa, ../../output/compiled_wflow_test/ThyCyn2.0
+    output: ../../output/compiled_wflow_test/ThyCyn2.0/chr19_ThyCyn2.0_list.txt
+    log: ../../output/compiled_wflow_test/logfiles/chr19_ThyCyn2.0_faSplit.log
+    jobid: 0
+    reason: Input files updated by another job: ../../output/compiled_wflow_test/chr19_phastCons60way_liftoff_ThyCyn2.0_mapped_cleaned_slop.fa
+    wildcards: path=../../output/compiled_wflow_test, target_species=ThyCyn2.0, chr=chr19
+    resources: tmpdir=/tmp
+
+[Tue May  6 16:38:24 2025]
+Finished job 0.
+8 of 8 steps (100%) done
+Complete log: .snakemake/log/2025-05-06T163733.515893.snakemake.log
