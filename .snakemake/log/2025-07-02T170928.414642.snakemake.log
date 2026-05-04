@@ -1,3 +1,0 @@
-WildcardError in file /data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/code/mapping_workflow_v2/2.Snakefile, line 218:
-No values given for wildcard 'query'.
-  File "/data/gpfs/projects/punim0586/nshukla/thylacine_canid_convergence_reanalysis/code/mapping_workflow_v2/2.Snakefile", line 218, in <module>

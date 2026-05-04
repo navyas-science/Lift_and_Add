@@ -1,7 +1,0 @@
-Building DAG of jobs...
-MissingInputException in rule liftoff in file /data/gpfs/projects/punim0586/nshukla/Lift_and_Add_implementation/Lift_and_Add/2.Snakefile, line 76:
-Missing input files for rule liftoff:
-    output: output/chr19_phastCons60way_bosTau7_BosGru3.1_mapped.gtf, output/chr19_phastCons60way_bosTau7_BosGru3.1_unmapped.txt
-    wildcards: path=output, target_species=BosGru3.1, chr=chr19, query=bosTau7
-    affected files:
-        data/genomes/bosTau/GCF_000003205.5_Btau_4.6.1_genomic.fna
