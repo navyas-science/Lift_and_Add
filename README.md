@@ -1,6 +1,6 @@
 # Lift&Add - expanding alignments of vertebrate conserved elements # 
 
-This repository consists of all the Snakemake files, config files and bash scripts required for the workflow detailed in [Shukla and Gallego Romero, 2025](https://www.biorxiv.org/content/10.1101/2025.10.14.682260v1.article-metrics)).
+This repository consists of all the Snakemake files, config files and bash scripts required for the workflow detailed in [Shukla and Gallego Romero, 2026](https://doi.org/10.1093/bioinformatics/btag315)).
 
 ## Tools ## 
 
